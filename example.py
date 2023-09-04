@@ -10,12 +10,12 @@ client = api.BearerClient(user_key)
 # Retrieve a record
 record = client.Record.find(9590591)
 
-app_id = 20330
+app_id = 21156
 
 # Create a record
 payload = {
 	"fields": {
-		"nome_completo": "Fulano Sicrano da Silva"
+		"title": "Fulano Sicrano da Silva"
     }
 }
 created_rec = client.Record.create(app_id, payload)
@@ -23,7 +23,7 @@ created_rec = client.Record.create(app_id, payload)
 # Update a record
 payload = {
     'fields': {
-        'nome_completo': 'Fulano Beltrano Soares'
+        'title': 'Fulano Beltrano Soares'
     }
 }
 updated_rec = client.Record.update(created_rec['id'], payload)
