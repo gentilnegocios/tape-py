@@ -41,7 +41,7 @@ records = client.App.get_records(app_id, **options)['records']
 filter_payload = {
     "filters": [
         {
-            "field_id": "182958",
+            "field_id": "192075",
             "field_type": "single_text",
             "match_type": "contains",
             "values": [
