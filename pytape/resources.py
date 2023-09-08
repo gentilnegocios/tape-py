@@ -107,16 +107,6 @@ class Record(Resource):
 
 
 class App(Resource):
-    def activate(self, app_id):
-        """
-        Activates the app with app_id
-
-        :param app_id: App ID
-        :type app_id: str or int
-        :return: Python dict of JSON response
-        :rtype: dict
-        """
-        return self.transport.POST(url='/app/%s/activate' % app_id)
 
     def create(self, attributes):
         if not isinstance(attributes, dict):
