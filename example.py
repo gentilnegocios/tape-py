@@ -35,7 +35,7 @@ client.Record.delete(created_rec['id'])
 restored_rec = client.Record.restore(created_rec['id'])
 
 # Retrieve records for an app
-options = {"limit": 2, "sort_by": "nome_completo", "sort_desc": True}
+options = {"limit": 2, "sort_by": "title", "sort_desc": True}
 records = client.App.get_records(app_id, **options)['records']
 
 filter_payload = {
