@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Unit tests for pytape.areas.Record (via pytape.client.Client). Works
+Unit tests for pytape.resources.Record (via pytape.client.Client). Works
 by mocking httplib2, and making assertions about how pytape calls
 it.
 """

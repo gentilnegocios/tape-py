@@ -29,7 +29,7 @@ def get_client_and_http():
     return client, http
 
 
-# This is used a lot by test_areas_*. It's a little weird, but it
+# This is used a lot by test_resources_*. It's a little weird, but it
 # reduces the amount of code to write per test by a lot.
 def check_client_method():
     """

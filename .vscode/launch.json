@@ -21,7 +21,7 @@
             "program": "${workspaceFolder}/.virtualenv/bin/nosetests",
             "args": [
                 "-s",
-                "tests.test_areas_record:test_find"
+                "tests.test_resources_record:test_find"
             ],
             "console": "integratedTerminal",
             "cwd": "${workspaceFolder}",

@@ -7,8 +7,8 @@ except ImportError:
     from urllib import urlencode
 
 
-class Area(object):
-    """Represents a Tape Area"""
+class Resource(object):
+    """Represents a Tape Resource"""
     def __init__(self, transport):
         self.transport = transport
 
@@ -46,7 +46,7 @@ class Area(object):
             return ''
 
 
-class Record(Area):
+class Record(Resource):
     def find(self, record_id, **kwargs):
         """
         Get record
@@ -106,7 +106,7 @@ class Record(Area):
                                                                                       hook=hook)))
 
 
-class App(Area):
+class App(Resource):
     def activate(self, app_id):
         """
         Activates the app with app_id

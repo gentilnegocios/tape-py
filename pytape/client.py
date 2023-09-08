@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from . import areas
+from . import resources
 
 
 class FailedRequest(Exception):
@@ -21,12 +21,12 @@ class Client(object):
         self.transport = transport
 
     def __getattr__(self, name):
-        new_trans = self.transport
-        area = getattr(areas, name)
-        return area(new_trans)
+        new_transport = self.transport
+        resource = getattr(resources, name)
+        return resource(new_transport)
 
     def __dir__(self):
         """
         Return a list of attribute names.
         """
-        return dir(areas)
+        return dir(resources)
