@@ -46,7 +46,7 @@ filter_payload = {
             "match_type": "contains",
             "values": [
                 {
-                "value": "Soares"
+                    "value": "Soares"
                 }
             ],
             "type": "text"
