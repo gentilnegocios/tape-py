@@ -108,11 +108,5 @@ class Record(Resource):
 
 class App(Resource):
 
-    def create(self, attributes):
-        if not isinstance(attributes, dict):
-            raise TypeError('Must be of type dict')
-        attributes = json.dumps(attributes)
-        return self.transport.POST(url='/app/', body=attributes, type='application/json')
-
     def get_records(self, app_id, **kwargs):
         return self.transport.GET(url='/v1/record/app/%d%s' % (app_id, self.get_options(**kwargs)))
