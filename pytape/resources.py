@@ -42,8 +42,7 @@ class Resource(object):
             options_.update(kwargs)
         if options_:
             return '?' + urlencode(options_).lower()
-        else:
-            return ''
+        return ''
 
 
 class Record(Resource):
