@@ -109,3 +109,6 @@ class App(Resource):
 
     def get_records(self, app_id, **kwargs):
         return self.transport.GET(url='/v1/record/app/%d%s' % (app_id, self.get_options(**kwargs)))
+
+    def find(self, app_id):
+        return self.transport.GET(url='/v1/app/%d' % app_id)
