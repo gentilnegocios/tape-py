@@ -101,8 +101,8 @@ class HttpTransport(object):
         elif 'type' in kwargs:
             if kwargs['type'] == 'multipart/form-data':
                 fields = [('filename', kwargs['body']['filename'])]
-                files = [('source', kwargs['body']['filename'],kwargs['body']['source'])]
-                body, content_type = multipart_encode(fields,files)
+                files = [('file', kwargs['body']['filename'], kwargs['body']['file'])]
+                body, content_type = multipart_encode(fields, files)
                 headers.update({'Content-Type': content_type, })
             else:
                 body = kwargs['body']
