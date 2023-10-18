@@ -9,3 +9,5 @@ dist
 *.egg-info
 idea
 *.env
+.temp/*
+!.temp/.gitkeep

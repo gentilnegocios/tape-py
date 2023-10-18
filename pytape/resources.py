@@ -62,7 +62,9 @@ class Record(Resource):
         if not isinstance(attributes, dict):
             raise TypeError('Must be of type dict')
         attributes = json.dumps(attributes)
-        return self.transport.POST(url="/v1/record/filter/app/%d" % app_id, body=attributes,
+        return self.transport.POST(url="/v1/record/filter/app/%d%s" %
+                                   (app_id, self.get_options(**kwargs)),
+                                   body=attributes,
                                    type="application/json", **kwargs)
 
     def create(self, app_id, attributes, silent=False, hook=True, workflow=True):
