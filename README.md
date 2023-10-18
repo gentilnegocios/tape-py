@@ -44,6 +44,6 @@ With those installed, run `nosetests` from the repository's root directory.
 Meta
 ----
 
-* Code: `git clone git://github.com/gentilnegocios/tape-py.git`
+* Code: `git clone https://github.com/gentilnegocios/tape-py.git`
 * Home: <https://github.com/gentilnegocios/tape-py>
 * Bugs: <https://github.com/gentilnegocios/tape-py/issues>

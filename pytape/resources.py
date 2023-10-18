@@ -114,3 +114,12 @@ class App(Resource):
 
     def find(self, app_id):
         return self.transport.GET(url='/v1/app/%d' % app_id)
+
+
+class File(Resource):
+
+    def upload(self, filename, filedata):
+        """Create a file from raw data"""
+        attributes = {'filename': filename,
+                      'file': filedata}
+        return self.transport.POST(url='/v1/file/upload', body=attributes, type='multipart/form-data')
