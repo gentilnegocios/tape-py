@@ -5,6 +5,7 @@ test.py
 build
 dist
 .virtualenv
+.venv
 *.egg
 *.egg-info
 idea
