@@ -26,13 +26,13 @@ payload = {
         'title': 'Fulano Beltrano Soares'
     }
 }
-updated_rec = client.Record.update(created_rec['id'], payload)
+updated_rec = client.Record.update(created_rec['record_id'], payload)
 
 # Delete a record. It doesn't return anything
 client.Record.delete(created_rec['id'])
 
 # Restore a record
-restored_rec = client.Record.restore(created_rec['id'])
+restored_rec = client.Record.restore(created_rec['record_id'])
 
 # Retrieve records for an app
 options = {"limit": 2, "sort_by": "title", "sort_desc": True}
