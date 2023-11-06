@@ -13,7 +13,7 @@ class Resource(object):
         self.transport = transport
 
     @staticmethod
-    def sanitize_id(record_id):
+    def sanitize_id(record_id: int):
         if isinstance(record_id, int):
             return str(record_id)
         return record_id
@@ -46,7 +46,7 @@ class Resource(object):
 
 
 class Record(Resource):
-    def find(self, record_id, **kwargs):
+    def find(self, record_id: int, **kwargs):
         """
         Get record
 
@@ -58,14 +58,20 @@ class Record(Resource):
         """
         return self.transport.GET(url='/v1/record/%d' % record_id, **kwargs)
 
-    def filter(self, app_id, attributes, **kwargs):
+    def filter(self, app_id: int, attributes: dict, **kwargs):
         if not isinstance(attributes, dict):
             raise TypeError('Must be of type dict')
         attributes = json.dumps(attributes)
-        return self.transport.POST(url="/v1/record/filter/app/%d" % app_id, body=attributes,
-                                   type="application/json", **kwargs)
+        return self.transport.POST(url="/v1/record/filter/app/%d%s" %
+                                   (app_id, self.get_options(**kwargs)),
+                                   body=attributes,
+                                   type="application/json")
 
-    def create(self, app_id, attributes, silent=False, hook=True, workflow=True):
+    def filter_by_view(self, view_id: int, **kwargs):
+        return self.transport.GET(url="/v1/record/view/%d%s" %
+                                   (view_id, self.get_options(**kwargs)))
+
+    def create(self, app_id: int, attributes: dict, silent=False, hook=True, workflow=True):
         if not isinstance(attributes, dict):
             raise TypeError('Must be of type dict')
         attributes = json.dumps(attributes)
@@ -76,7 +82,7 @@ class Record(Resource):
                                                                              hook=hook,
                                                                              workflow=workflow)))
 
-    def update(self, record_id, attributes, silent=False, hook=True, workflow=True):
+    def update(self, record_id: int, attributes: dict, silent=False, hook=True, workflow=True):
         """
         Updates the item using the supplied attributes. If 'silent' is true, Tape will send
         no notifications to subscribed users and not post updates to the stream.
@@ -92,14 +98,14 @@ class Record(Resource):
                                                                                 hook=hook,
                                                                                 workflow=workflow)))
 
-    def delete(self, record_id, silent=False, hook=True, skip_trash=False):
+    def delete(self, record_id: int, silent=False, hook=True, skip_trash=False):
         return self.transport.DELETE(url='/v1/record/%d%s' % (record_id,
                                                          self.get_options(silent=silent,
                                                                           hook=hook,
                                                                           skip_trash=skip_trash)),
                                      handler=lambda x, y: None)
 
-    def restore(self, record_id, silent=False, hook=True):
+    def restore(self, record_id: int, silent=False, hook=True):
         return self.transport.POST(url='/v1/record/%d/restore%s' % (record_id,
                                                                      self.get_options(silent=silent,
                                                                                       hook=hook)))
@@ -107,16 +113,16 @@ class Record(Resource):
 
 class App(Resource):
 
-    def get_records(self, app_id, **kwargs):
+    def get_records(self, app_id: int, **kwargs):
         return self.transport.GET(url='/v1/record/app/%d%s' % (app_id, self.get_options(**kwargs)))
 
-    def find(self, app_id):
+    def find(self, app_id: int):
         return self.transport.GET(url='/v1/app/%d' % app_id)
 
 
 class File(Resource):
 
-    def upload(self, filename, filedata):
+    def upload(self, filename: str, filedata):
         """Create a file from raw data"""
         attributes = {'filename': filename,
                       'file': filedata}
