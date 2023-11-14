@@ -17,7 +17,7 @@ Install PyTape by cloning from the GitHub repo:
 
 Alternatively, install via `pip`:
 
-    $ pip install -e git+https://github.com/gentilnegocios/tape-py.git#egg=pytape
+    $ pip install git+https://github.com/gentilnegocios/tape-py.git#egg=pytape
 
 
 Example
