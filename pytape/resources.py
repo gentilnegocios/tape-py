@@ -41,7 +41,7 @@ class Resource(object):
         if kwargs:
             options_.update(kwargs)
         if options_:
-            return '?' + urlencode(options_).lower()
+            return '?' + urlencode(options_)
         return ''
 
 
