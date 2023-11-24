@@ -18,7 +18,7 @@
             "name": "Test Record Find - Nosetests",
             "type": "python",
             "request": "launch",
-            "program": "${workspaceFolder}/.virtualenv/bin/nosetests",
+            "program": "${workspaceFolder}/.venv/bin/nosetests",
             "args": [
                 "-s",
                 "tests.test_resources_record:test_find"
