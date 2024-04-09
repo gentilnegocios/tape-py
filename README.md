@@ -1,7 +1,7 @@
 PyTape
 =====
 
-Python wrapper for the Tape API.
+Python wrapper for the [Tape](https://get.tapeapp.com/) API.
 
 Install
 -------
